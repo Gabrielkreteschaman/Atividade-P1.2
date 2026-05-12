@@ -25,15 +25,19 @@ class Venda {
     }
 
     public function imprimir() {
-        echo "Cliente: " . $this->cliente->getNome() . "<br>";
+    echo "Cliente: " . $this->cliente->getNome() . "<br><br>";
 
-        echo "Produtos:<br>";
+    echo "Produtos:<br>";
 
-        foreach ($this->produtos as $produto) {
-            echo "- " . $produto->getNome() . "<br>";
+    foreach ($this->produtos as $produto) {
+            echo "id: " . $produto->getId() . "<br>";
+            echo "nome: " . $produto->getNome() . "<br>";
+            echo "marca: " . $produto->getMarca() . "<br>";
+            echo "preço: R$ " . $produto->getPreco() . "<br>";
+            echo "categoria: " . $produto->getCategoria()->getDescricao() . "<br><br>";
         }
 
         echo "Total: R$ " . $this->calcularTotal();
-    }
+    }   
 }
 ?>

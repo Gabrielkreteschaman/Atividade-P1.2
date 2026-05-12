@@ -1,28 +1,28 @@
 <?php
-    
-    require 'categoria.php';
-    require 'produto.php';
-    require 'cliente.php';
-    require 'venda.php';
 
-    $nome = $_POST['cliente'] ?? '';
-    $produtoSelecionado = $_POST['produto'] ?? '';
+require 'categoria.php';
+require 'produto.php';
+require 'cliente.php';
+require 'venda.php';
 
-    $categoria = new Categoria(1, "Eletrônicos");
+$nome = $_POST['nome'] ?? '';
+$produtoSelecionado = $_POST['produto'] ?? '';
 
-    $p1 = new Produto(1, "Mouse", "Logitech", 120, $categoria);
-    $p2 = new Produto(2, "Teclado", "Redragon", 250, $categoria);
+$categoria = new Categoria("Eletrônicos", 1);
 
-    $cliente = new Cliente($nome, date('Y-m-d'));
+$p1 = new Produto(1, "Mouse", "Logitech", 120, $categoria);
+$p2 = new Produto(2, "Teclado", "Redragon", 250, $categoria);
 
-    $venda = new Venda(1, $cliente);
+$cliente = new Cliente($nome, date('Y-m-d'));
 
-    if ($produtoSelecionado == "Mouse") {
-        $venda->adicionarProduto($p1);
-    }else if ($produtoSelecionado == "Teclado") {
-        $venda->adicionarProduto($p2);
-    }
+$venda = new Venda(1, $cliente);
 
-    $venda->imprimir();
+if ($produtoSelecionado == "Mouse") {
+    $venda->adicionarProduto($p1);
+} else if ($produtoSelecionado == "Teclado") {
+    $venda->adicionarProduto($p2);
+}
+
+$venda->imprimir();
 
 ?>

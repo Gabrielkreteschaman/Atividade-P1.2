@@ -15,12 +15,20 @@
             $this->categoria = $categoria;
         }
 
-        public function getPreco() {
-            return $this->preco;
+                public function getId() {
+            return $this->id;
         }
 
         public function getNome() {
             return $this->nome;
+        }
+
+        public function getMarca() {
+            return $this->marca;
+        }
+
+        public function getPreco() {
+            return $this->preco;
         }
 
         public function getCategoria() {
